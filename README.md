@@ -1,36 +1,42 @@
-# Markdown to HTML Viewer
+# markdown-to-html
 
-This project provides a simple, single-page web application to convert and display Markdown files (`.md`) as styled HTML content directly in your browser. It's built with modern web technologies, including Tailwind CSS for responsive styling and Marked.js for efficient Markdown parsing.
+A lightweight static web app that converts a Markdown file (`input.md`) into HTML  using [marked](https://github.com/markedjs/marked).  Now enhanced with an Aria live alert that reports lookup and render status.
 
 ## Features
 
-*   **Markdown to HTML Conversion:** Automatically fetches `input.md` and renders its content as HTML.
-*   **Responsive Design:** Utilizes Tailwind CSS to ensure a great viewing experience across various devices and screen sizes.
-*   **Lightweight and Fast:** A single HTML file with CDN-loaded libraries for quick setup and minimal dependencies.
-*   **Customizable Styling:** Easily modify the look and feel by adjusting the Tailwind CSS classes or adding custom styles.
+- Converts Markdown to HTML in-browser.
+- Automatically fetches and renders `input.md`.
+- Inlines SVGs for better display.
+- **New in Round 2** : Accessible `github-status` live region that announces repository lookup status:
+  - "Looking up repository…"
+  - "Repository found!…"
+  - "Failed to find repository.…"
 
-## Getting Started
+## Accessibility
 
-To use this application, you only need to place the provided `index.html` and your Markdown content (`input.md`) in the same directory.
+The page includes an Aria live region:
 
-### Prerequisites
+``chtml
+<div id="github-status" aria-live="polite"></div>
+`chtml
 
-*   A web browser.
+This ensures screen readers are notified when loading, succeeding, or failing.
 
-### Usage
+## Local Use
+1. Download or clone this repos.
+2. Place an `input.md` file in the same directory.
+3. Open `idex.html` directly in any modern browser.
 
-1.  Save the `index.html` file in a directory.
-2.  Place your Markdown file, named `input.md`, in the *same directory* as `index.html`.
-3.  Open `index.html` in your web browser.
+## Round 1 Brief
 
-The application will automatically fetch `input.md`, convert its content to HTML, and display it on the page.
+create a index.html page that converts input.md from attachments to HTML 
 
-## Technologies Used
+using marked, renders it inside (Round 1) 
 
-*   **HTML5:** Structure of the web page.
-*   **Tailwind CSS:** For utility-first styling and responsive design.
-*   **Marked.js:** A fast Markdown parser and compiler written in JavaScript.
+## Round 2 Brief
+
+Show an aria-live alert `#github-status` that reports when a lookup starts, succeeds or fails.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](#license) file for details.
+MIT License
